@@ -2,22 +2,36 @@ package com.hcidev.hci;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+
+import java.util.ArrayList;
 import java.util.List;
 import android.support.v4.app.Fragment;
+import android.support.v7.widget.DefaultItemAnimator;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Adapter;
 import android.widget.TextView;
 
+import recyclercontroller.Profileadapter;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
+import static android.content.ContentValues.TAG;
+
 public class MynoteFragment extends Fragment {
 
-    private TextView viewResult;
+    RecyclerView recyclerView;
+    Profileadapter profileadapter;
+    private static final String BASE_URL = "http://10.0.2.2/hcirestapi/api/Nhandler/";
+
+
 
     public MynoteFragment(){
 
@@ -27,53 +41,43 @@ public class MynoteFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
-        View view =  inflater.inflate(R.layout.mynote_content,container,false);
+        View rootview =  inflater.inflate(R.layout.mynote_content,container,false);
 
-        viewResult = (TextView) view.findViewById(R.id.TextViewOnTextResult);
 
+        recyclerView = (RecyclerView) rootview.findViewById(R.id.myRecylerview);
+
+        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getActivity());
+
+        recyclerView.setLayoutManager(layoutManager);
+        recyclerView.setItemAnimator(new DefaultItemAnimator());
+        recyclerView.setAdapter(profileadapter);
 
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("http://10.0.2.2/hcirestapi/api/Nhandler/")
+                .baseUrl(BASE_URL)
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
 
         Apiservice apiservice = retrofit.create(Apiservice.class);
 
-        Call<List<Notes>> call = apiservice.getNotes();
+        Call<ArrayList<Notes>> call = apiservice.getNotes();
 
-        call.enqueue(new Callback<List<Notes>>() {
+        call.enqueue(new Callback<ArrayList<Notes>>() {
             @Override
-            public void onResponse(Call<List<Notes>> call, Response<List<Notes>> response) {
-
-                if(!response.isSuccessful()){
-                    viewResult.setText("Code" + response.code());
-                    return;
-                }
-
-                List<Notes> notes = response.body();
-
-                for(Notes notess : notes){
-
-                    String content ="notes";
-                    content += "id: " + notess.getNote_id()+ "\n";
-                    content += "Type: "  + notess.getNote_title() + "\n";
-
-                    viewResult.append(content);
-
-                }
-
+            public void onResponse(Call<ArrayList<Notes>> call, Response<ArrayList<Notes>> response) {
+                profileadapter = new Profileadapter(response.body());
+                recyclerView.setAdapter(profileadapter);
 
             }
 
             @Override
-            public void onFailure(Call<List<Notes>> call, Throwable t) {
-
-                viewResult.setText(t.getMessage());
+            public void onFailure(Call<ArrayList<Notes>> call, Throwable t) {
 
             }
         });
 
-        return view;
+        return rootview;
+
 
     }
+
 }
