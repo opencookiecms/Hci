@@ -27,8 +27,23 @@ public class Profileadapter extends RecyclerView.Adapter<Profileadapter.ProfileH
         this.noteadapter = noteadapter;
     }
 
+    public class ProfileHolder extends RecyclerView.ViewHolder{
 
+        TextView title;
+        TextView content;
+        TextView typetext;
+        ImageView imageView;
 
+        public  ProfileHolder(View profileview){
+            super(profileview);
+
+            title = profileview.findViewById(R.id.textTitle);
+            content = profileview.findViewById(R.id.textContent);
+            typetext = profileview.findViewById(R.id.textType);
+            imageView = profileview.findViewById(R.id.imgTypes);
+
+        }
+    }
 
 
     @NonNull
@@ -44,7 +59,18 @@ public class Profileadapter extends RecyclerView.Adapter<Profileadapter.ProfileH
 
         profileHolder.title.setText(notes.getNote_title());
         profileHolder.content.setText(notes.getNote_content());
-        profileHolder.typetext.setText(notes.getNote_type());
+       // profileHolder.typetext.setText(notes.getNote_type());
+        //profileHolder.imageView.setImageResource(R.drawable.ic_docx);
+
+       if(notes.getNote_type() == 1){
+            profileHolder.imageView.setImageResource(R.drawable.ic_docx);
+        }
+        else if(notes.getNote_type() == 2) {
+           profileHolder.imageView.setImageResource(R.drawable.ic_pdf64);
+        }
+        else{
+            profileHolder.imageView.setImageResource(R.drawable.ic_menu_camera);
+       }
 
     }
 
@@ -52,33 +78,6 @@ public class Profileadapter extends RecyclerView.Adapter<Profileadapter.ProfileH
     public int getItemCount() {
         return noteadapter.size();
     }
-
-    public class ProfileHolder extends RecyclerView.ViewHolder{
-
-        TextView title;
-        TextView content;
-        TextView typetext;
-        ImageView imageView;
-
-
-
-        public  ProfileHolder(View profileview){
-            super(profileview);
-
-            title = profileview.findViewById(R.id.textTitle);
-            content = profileview.findViewById(R.id.textContent);
-            typetext = profileview.findViewById(R.id.textType);
-            imageView = profileview.findViewById(R.id.imgTypes);
-
-            if(typetext.getText() == "docx"){
-                imageView.setImageResource(R.drawable.ic_docx);
-            }
-
-
-
-        }
-    }
-
 
 
 }

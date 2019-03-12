@@ -1,5 +1,6 @@
 package com.hcidev.hci;
 
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 
@@ -14,6 +15,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Adapter;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import recyclercontroller.Profileadapter;
@@ -29,6 +31,8 @@ public class MynoteFragment extends Fragment {
 
     RecyclerView recyclerView;
     Profileadapter profileadapter;
+    ImageView imageViewtype;
+    TextView textViews;
     private static final String BASE_URL = "http://10.0.2.2/hcirestapi/api/Nhandler/";
 
 
@@ -45,6 +49,7 @@ public class MynoteFragment extends Fragment {
 
 
         recyclerView = (RecyclerView) rootview.findViewById(R.id.myRecylerview);
+
 
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getActivity());
 
@@ -66,7 +71,6 @@ public class MynoteFragment extends Fragment {
             public void onResponse(Call<ArrayList<Notes>> call, Response<ArrayList<Notes>> response) {
                 profileadapter = new Profileadapter(response.body());
                 recyclerView.setAdapter(profileadapter);
-
             }
 
             @Override
