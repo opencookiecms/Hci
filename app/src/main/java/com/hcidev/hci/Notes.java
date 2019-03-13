@@ -13,14 +13,14 @@ public class Notes {
     @SerializedName("note_link")
     private String note_link;
     @SerializedName("note_type")
-    private int note_type;
+    private String note_type;
     @SerializedName("note_userId")
     private int note_userId;
     @SerializedName("note_reg")
     private String note_reg;
 
 
-    public Notes(int note_id, String note_title, String note_content, String note_link, int note_type, int note_userId, String note_reg) {
+    public Notes(int note_id, String note_title, String note_content, String note_link, String note_type, int note_userId, String note_reg) {
         this.note_id = note_id;
         this.note_title = note_title;
         this.note_content = note_content;
@@ -46,7 +46,7 @@ public class Notes {
         return note_link;
     }
 
-    public int getNote_type() {
+    public String getNote_type() {
         return note_type;
     }
 

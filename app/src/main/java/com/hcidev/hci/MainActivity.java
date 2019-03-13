@@ -90,6 +90,8 @@ public class MainActivity extends AppCompatActivity
         } else if (id == R.id.nav_manage) {
 
         } else if (id == R.id.nav_share) {
+            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_screen,
+                    new RegisterFragment()).commit();
 
         }
 

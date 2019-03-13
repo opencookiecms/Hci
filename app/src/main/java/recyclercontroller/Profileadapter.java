@@ -59,18 +59,22 @@ public class Profileadapter extends RecyclerView.Adapter<Profileadapter.ProfileH
 
         profileHolder.title.setText(notes.getNote_title());
         profileHolder.content.setText(notes.getNote_content());
-       // profileHolder.typetext.setText(notes.getNote_type());
+        //profileHolder.typetext.setText(notes.getNote_type());
         //profileHolder.imageView.setImageResource(R.drawable.ic_docx);
 
-       if(notes.getNote_type() == 1){
+        String docx = "docx";
+        String pdf = "pdf";
+
+       if(notes.getNote_type().equals(docx)){
             profileHolder.imageView.setImageResource(R.drawable.ic_docx);
         }
-        else if(notes.getNote_type() == 2) {
+        else if(notes.getNote_type().equals(pdf)) {
            profileHolder.imageView.setImageResource(R.drawable.ic_pdf64);
         }
         else{
             profileHolder.imageView.setImageResource(R.drawable.ic_menu_camera);
        }
+
 
     }
 
