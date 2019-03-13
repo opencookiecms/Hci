@@ -33,7 +33,7 @@ public class MynoteFragment extends Fragment {
     Profileadapter profileadapter;
     ImageView imageViewtype;
     TextView textViews;
-    private static final String BASE_URL = "http://10.0.2.2/hcirestapi/api/Nhandler/";
+    private static final String BASE_URL = "http://192.168.1.132/hcirestapi/api/Nhandler/";
 
 
 

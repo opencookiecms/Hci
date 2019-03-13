@@ -10,6 +10,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ProgressBar;
+import android.widget.Toast;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -19,7 +20,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class RegisterFragment extends Fragment {
 
-    private static final String BASE_URL = "http://10.0.2.2/hcirestapi/api/Dhandler/";
+    private static final String BASE_URL = "http://192.168.1.132/hcirestapi/api/Dhandler/";
     private SharedPreferences sharedPreferences;
     Retrofit retrofit;
     Apiservice apiservice;
@@ -71,6 +72,10 @@ public class RegisterFragment extends Fragment {
                     public void onResponse(Call<Usersprofile> call, Response<Usersprofile> response) {
                         if(response.isSuccessful()){
                             Usersprofile usersprofile = response.body();
+                            Toast.makeText(getActivity(),"Your accout was susccessful create :" + response.code(),Toast.LENGTH_LONG).show();
+                        }
+                        else {
+                            Toast.makeText(getActivity(),"Fail error code " + response.code(),Toast.LENGTH_LONG).show();
                         }
                     }
 
