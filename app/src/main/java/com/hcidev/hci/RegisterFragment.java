@@ -20,7 +20,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class RegisterFragment extends Fragment {
 
-    private static final String BASE_URL = "http://192.168.1.132/hcirestapi/api/Dhandler/";
+    private static final String BASE_URL = "http://10.0.2.2/hcirestapi/api/Dhandler/";
     private SharedPreferences sharedPreferences;
     Retrofit retrofit;
     Apiservice apiservice;
