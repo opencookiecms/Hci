@@ -21,4 +21,12 @@ public interface Apiservice {
 
 
 
+
+    Call<Notes> uploadNote(@Field("title") String notes_title,
+                           @Field("content")String note_content);
+
+
+
+
+
 }

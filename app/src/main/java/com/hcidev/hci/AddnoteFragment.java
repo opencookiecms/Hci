@@ -9,6 +9,9 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
@@ -57,5 +60,22 @@ public class AddnoteFragment extends Fragment {
 
     private void Uploadnote(){
 
+        apiservice = retrofit.create(Apiservice.class);
+
+
+        apiservice.uploadNote(
+                noteTitle.getText().toString(),
+                noteContent.getText().toString())
+                .enqueue(new Callback<Notes>() {
+                    @Override
+                    public void onResponse(Call<Notes> call, Response<Notes> response) {
+
+                    }
+
+                    @Override
+                    public void onFailure(Call<Notes> call, Throwable t) {
+
+                    }
+                });
     }
 }

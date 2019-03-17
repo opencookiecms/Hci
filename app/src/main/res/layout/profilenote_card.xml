@@ -14,7 +14,7 @@
 
         <TextView
             android:id="@+id/textTitle"
-            android:layout_width="168dp"
+            android:layout_width="161dp"
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
             android:layout_marginStart="16dp"
@@ -26,8 +26,8 @@
 
         <TextView
             android:id="@+id/textContent"
-            android:layout_width="168dp"
-            android:layout_height="38dp"
+            android:layout_width="162dp"
+            android:layout_height="61dp"
             android:layout_below="@+id/textTitle"
             android:layout_marginStart="16dp"
             android:layout_marginTop="8dp"
@@ -57,18 +57,24 @@
 
         <Button
             android:id="@+id/dButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            style="@style/Widget.AppCompat.Button.ButtonBar.AlertDialog"
+            android:layout_width="92dp"
+            android:layout_height="34dp"
             android:layout_alignParentTop="true"
             android:layout_alignParentEnd="true"
-            android:layout_marginStart="18dp"
-            android:layout_marginTop="32dp"
-            android:layout_marginEnd="16dp"
-            android:layout_toEndOf="@+id/textContent"
-            android:text="download"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="33dp"
+            android:layout_marginEnd="18dp"
+            android:layout_toEndOf="@+id/textTitle"
+            android:background="@drawable/butt_shape"
+            android:text="Download"
+            android:textColor="@color/colorAccent"
+            android:textSize="10sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/textContent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@android:drawable/ic_media_ff"
+            tools:text="Dowload" />
 
     </RelativeLayout>
 
