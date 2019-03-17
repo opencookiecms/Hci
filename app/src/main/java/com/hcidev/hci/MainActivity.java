@@ -67,8 +67,9 @@ public class MainActivity extends AppCompatActivity
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
+        if (id == R.id.action_addnotes) {
+            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_screen,
+                    new AddnoteFragment()).commit();
         }
 
         return super.onOptionsItemSelected(item);
@@ -80,19 +81,20 @@ public class MainActivity extends AppCompatActivity
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
-        if (id == R.id.nav_camera) {
+        if (id == R.id.nav_note) {
             getSupportFragmentManager().beginTransaction().replace(R.id.fragment_screen,
                     new MynoteFragment()).commit();
-        } else if (id == R.id.nav_gallery) {
+        } else if (id == R.id.nav_follower) {
 
-        } else if (id == R.id.nav_slideshow) {
+        } else if (id == R.id.nav_following) {
 
-        } else if (id == R.id.nav_manage) {
+        } else if (id == R.id.nav_profile) {
 
-        } else if (id == R.id.nav_share) {
+        } else if (id == R.id.nav_request) {
+
+        }else if(id == R.id.nav_logout){
             getSupportFragmentManager().beginTransaction().replace(R.id.fragment_screen,
                     new RegisterFragment()).commit();
-
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);

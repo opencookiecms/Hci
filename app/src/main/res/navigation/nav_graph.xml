@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/addnoteFragment">
+
+    <fragment
+        android:id="@+id/addnoteFragment"
+        android:name="com.hcidev.hci.AddnoteFragment"
+        android:label="addnote_content"
+        tools:layout="@layout/addnote_content" />
+    <fragment
+        android:id="@+id/followerFragment"
+        android:name="com.hcidev.hci.FollowerFragment"
+        android:label="follower_content"
+        tools:layout="@layout/follower_content" />
+    <activity
+        android:id="@+id/loginActivity"
+        android:name="com.hcidev.hci.LoginActivity"
+        android:label="activity_login"
+        tools:layout="@layout/activity_login" />
+    <activity
+        android:id="@+id/mainActivity"
+        android:name="com.hcidev.hci.MainActivity"
+        android:label="activity_main"
+        tools:layout="@layout/activity_main" />
+</navigation>

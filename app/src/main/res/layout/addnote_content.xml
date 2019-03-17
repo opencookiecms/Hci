@@ -4,7 +4,6 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:background="@color/notebgcolor"
     android:layout_height="match_parent">
 
     <TextView
@@ -12,13 +11,12 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="116dp"
         android:text="Title"
-        android:textColor="@color/texboxcolor"
+
         android:textSize="16dp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView16" />
+        app:layout_constraintTop_toTopOf="@+id/noteTitleid" />
 
     <TextView
         android:id="@+id/textView16"
@@ -28,9 +26,9 @@
         android:layout_marginTop="64dp"
         android:layout_marginEnd="8dp"
         android:text="Add New Note"
-        android:textColor="@color/texboxcolor"
+
         android:textSize="35dp"
-        android:textStyle="normal"
+        android:textStyle="normal|bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -40,39 +38,74 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="40dp"
         android:text="Content"
-        android:textColor="@color/texboxcolor"
+
         android:textSize="16dp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView15" />
+        app:layout_constraintTop_toTopOf="@+id/noteContentid" />
 
     <EditText
-        android:id="@+id/noteTitle"
+        android:id="@+id/noteTitleid"
         android:layout_width="301dp"
         android:layout_height="43dp"
-        android:layout_marginTop="116dp"
-        android:layout_marginEnd="24dp"
-        android:background="@color/texboxcolor"
-        android:ems="10"
-        android:inputType="textPersonName"
+        android:layout_marginTop="32dp"
 
+        android:layout_marginEnd="24dp"
+        android:ems="10"
+
+        android:inputType="textPersonName"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView16" />
+        app:layout_constraintTop_toBottomOf="@+id/imageView3" />
 
     <EditText
-        android:id="@+id/noteContent"
+        android:id="@+id/noteContentid"
         android:layout_width="300dp"
         android:layout_height="69dp"
         android:layout_marginTop="20dp"
         android:layout_marginEnd="24dp"
-        android:background="@color/texboxcolor"
+
         android:ems="10"
         android:inputType="textPersonName"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="@+id/noteTitle"
-        app:layout_constraintTop_toBottomOf="@+id/noteTitle" />
+        app:layout_constraintStart_toStartOf="@+id/noteTitleid"
+        app:layout_constraintTop_toBottomOf="@+id/noteTitleid" />
+
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView16"
+        app:srcCompat="@drawable/ic_document" />
+
+    <Button
+        android:id="@+id/uploadBut"
+        style="@style/Widget.AppCompat.Button.Colored"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="8dp"
+        android:text="Upload"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/noteContentid" />
+
+    <TextView
+        android:id="@+id/txtusrid"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:text="userid"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/uploadBut" />
 
 </android.support.constraint.ConstraintLayout>

@@ -1,7 +1,9 @@
 package com.hcidev.hci;
 
 import android.graphics.drawable.Drawable;
+import android.os.AsyncTask;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 
 import java.util.ArrayList;
@@ -15,8 +17,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Adapter;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import recyclercontroller.Profileadapter;
 import retrofit2.Call;
@@ -33,7 +37,8 @@ public class MynoteFragment extends Fragment {
     Profileadapter profileadapter;
     ImageView imageViewtype;
     TextView textViews;
-    private static final String BASE_URL = "http://10.0.2.2/hcirestapi/api/Nhandler/";
+    Button downloadb;
+    private static final String BASE_URL = "http://192.168.1.132/hcirestapi/api/Nhandler/";
 
 
 
@@ -49,10 +54,7 @@ public class MynoteFragment extends Fragment {
 
 
         recyclerView = (RecyclerView) rootview.findViewById(R.id.myRecylerview);
-
-
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getActivity());
-
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setItemAnimator(new DefaultItemAnimator());
         recyclerView.setAdapter(profileadapter);
@@ -71,6 +73,7 @@ public class MynoteFragment extends Fragment {
             public void onResponse(Call<ArrayList<Notes>> call, Response<ArrayList<Notes>> response) {
                 profileadapter = new Profileadapter(response.body());
                 recyclerView.setAdapter(profileadapter);
+
             }
 
             @Override
@@ -78,6 +81,7 @@ public class MynoteFragment extends Fragment {
 
             }
         });
+
 
         return rootview;
 
