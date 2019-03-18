@@ -47,7 +47,7 @@
 
     <EditText
         android:id="@+id/noteTitleid"
-        android:layout_width="301dp"
+        android:layout_width="296dp"
         android:layout_height="43dp"
         android:layout_marginTop="32dp"
 
@@ -87,8 +87,8 @@
     <Button
         android:id="@+id/uploadBut"
         style="@style/Widget.AppCompat.Button.Colored"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="115dp"
+        android:layout_height="58dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="100dp"
         android:layout_marginEnd="8dp"
@@ -123,9 +123,9 @@
         app:layout_constraintTop_toBottomOf="@+id/noteContentid" />
 
     <TextView
-        android:id="@+id/textView19"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:id="@+id/textfilepath"
+        android:layout_width="204dp"
+        android:layout_height="52dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="32dp"
         android:text="names"
@@ -136,10 +136,12 @@
         android:id="@+id/findFile"
         android:layout_width="86dp"
         android:layout_height="41dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
         android:layout_marginEnd="16dp"
         android:text="Locate"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/noteContentid" />
+        app:layout_constraintStart_toEndOf="@+id/textfilepath"
+        app:layout_constraintTop_toTopOf="@+id/textfilepath" />
 
 </android.support.constraint.ConstraintLayout>

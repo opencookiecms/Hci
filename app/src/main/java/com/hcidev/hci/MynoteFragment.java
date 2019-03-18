@@ -10,6 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.DefaultItemAnimator;
+import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -55,8 +56,10 @@ public class MynoteFragment extends Fragment {
 
         recyclerView = (RecyclerView) rootview.findViewById(R.id.myRecylerview);
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getActivity());
+        DividerItemDecoration dividerItemDecoration = new DividerItemDecoration(recyclerView.getContext(), LinearLayoutManager.VERTICAL);
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setItemAnimator(new DefaultItemAnimator());
+        recyclerView.addItemDecoration(dividerItemDecoration);
         recyclerView.setAdapter(profileadapter);
 
         Retrofit retrofit = new Retrofit.Builder()
@@ -84,6 +87,7 @@ public class MynoteFragment extends Fragment {
 
 
         return rootview;
+
 
 
     }

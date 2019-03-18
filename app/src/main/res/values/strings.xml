@@ -7,4 +7,6 @@
     <string name="nav_header_desc">Navigation header</string>
     <string name="action_addnote">Add Note</string>
     <string name="w_permission">This file need your permission</string>
+    <string name="choose_file">Choose File....</string>
+    <string name="action_settings">st</string>
 </resources>

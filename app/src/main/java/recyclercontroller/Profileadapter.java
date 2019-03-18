@@ -49,22 +49,25 @@ public class Profileadapter extends RecyclerView.Adapter<Profileadapter.ProfileH
 
         profileHolder.title.setText(notes.getNote_title());
         profileHolder.content.setText(notes.getNote_content());
-        String  docx = "docx";
-        String pdf = "pdf";
-        String pptx = "pptx";
+        String  docx = ".docx";
+        String pdf = ".pdf";
+        String pptx = ".pptx";
+        String doc = ".doc";
 
 
        if(notes.getNote_type().equals(docx)){
-            profileHolder.imageView.setImageResource(R.drawable.ic_docx);
+            profileHolder.imageView.setImageResource(R.drawable.ic_docx32);
         }
         else if(notes.getNote_type().equals(pdf)) {
-           profileHolder.imageView.setImageResource(R.drawable.ic_pdf64);
+           profileHolder.imageView.setImageResource(R.drawable.ic_pdf32);
         }
         else if(notes.getNote_type().equals(pptx)){
-           profileHolder.imageView.setImageResource(R.drawable.ic_menu_send);
+           profileHolder.imageView.setImageResource(R.drawable.ic_pptx);
+       }else if(notes.getNote_type().equals(doc)){
+            profileHolder.imageView.setImageResource(R.drawable.ic_doc);
        }
        else {
-           profileHolder.imageView.setImageResource(R.drawable.ic_menu_camera);
+           profileHolder.imageView.setImageResource(R.drawable.ic_file);
        }
 
        profileHolder.buttondownload.setOnClickListener(new View.OnClickListener() {
